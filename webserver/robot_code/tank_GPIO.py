@@ -4,7 +4,7 @@ import time
 class RobotSensors():
 
     def __init__(self,
-        sensor_left_pin=3,
+        sensor_left_pin=2,
         sensor_front_pin=5,
         sensor_right_pin=7
     ):
@@ -18,9 +18,9 @@ class RobotSensors():
     def init_pins(self):
         GPIO.setmode(GPIO.BCM)              #set pin mode
         GPIO.setwarnings(False)
-        GPIO.setup(self.sensor_left_pin, GPIO.IN)
-        GPIO.setup(self.sensor_front_pin, GPIO.IN)
-        GPIO.setup(self.sensor_right_pin, GPIO.IN)
+        GPIO.setup(self.sensor_left_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(self.sensor_front_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(self.sensor_right_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def read_left_sensor(self):
         val = GPIO.input(self.sensor_left_pin)
