@@ -1,10 +1,10 @@
 from flask import Flask, render_template
 import random
-import psutil
+
 
 app = Flask(__name__, template_folder='.')
 from  robot_code.tank_control import RobotController as controller
-import subprocess
+
 controller = controller()
 
 @app.route('/')
@@ -53,20 +53,20 @@ def get_sensor_reading(position):
     return "failed"
 
 
-@app.route('/set_autopilot_on', methods=['GET'])
-def set_autopilot_mode_on():
-    subprocess.run(['python','robot_code/Autonomous.py'])
-
-    return "set autopilot on"
-
-@app.route('/set_autopilot_off', methods=['GET'])
-def set_autopilot_mode_off():
-    current_process = psutil.Process()
-    children = current_process.children(recursive=True)
-    for child in children:
-        print('Child pid is {}'.format(child.pid))
-        subprocess.run(['pkill', child.pid])
-    return "set autopilot off"
+#@app.route('/set_autopilot_on', methods=['GET'])
+#def set_autopilot_mode_on():
+#    subprocess.run(['python','robot_code/Autonomous.py'])
+#
+#   return "set autopilot on"
+#
+#@app.route('/set_autopilot_off', methods=['GET'])
+#def set_autopilot_mode_off():
+#    current_process = psutil.Process()
+#    children = current_process.children(recursive=True)
+#    for child in children:
+#        print('Child pid is {}'.format(child.pid))
+#        subprocess.run(['pkill', child.pid])
+#    return "set autopilot off"
 
 if __name__ == "__main__":
     #app = Flask(__name__, template_folder='.')
