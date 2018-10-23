@@ -36,6 +36,8 @@ def move_stop():
     print("Stop called")
     return "Stop"
 
+
+
 if __name__ == "__main__":
     #app = Flask(__name__, template_folder='.')
     app.run(host='0.0.0.0', port=8000, debug=True)
