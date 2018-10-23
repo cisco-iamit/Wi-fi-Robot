@@ -1,6 +1,6 @@
-from GPIO2 import RobotDriver
+from .tank_GPIO import RobotDriver
 
-class RobotController():
+class RobotController:
 
     def __init__(self):
         self.robot = RobotDriver()
