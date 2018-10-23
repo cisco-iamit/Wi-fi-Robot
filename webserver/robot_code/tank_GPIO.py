@@ -5,8 +5,8 @@ class RobotSensors():
 
     def __init__(self,
         sensor_left_pin=2,
-        sensor_front_pin=5,
-        sensor_right_pin=7
+        sensor_front_pin=3,
+        sensor_right_pin=4
     ):
 
         self.sensor_left_pin = sensor_left_pin
