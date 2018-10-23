@@ -34,14 +34,14 @@ class RobotController:
 
     def move_automatically(self):
         while self.autoMode:
-    	    if self.sensors.read_left_sensor() == 1:
-                    self.right()
-                else if self.sensors.read_right_sensor() == 1:
+            if self.sensors.read_left_sensor() == 1:
+                self.right()
+            elif self.sensors.read_right_sensor() == 1:
     	        self.left()
-    	    else if self.sensors.read_front_sensor() == 1:
-    	        self.backward()
-    	    else:
-    	        self.forward()
+    	    elif self.sensors.read_front_sensor() == 1:
+                self.backward()
+            else:
+                self.forward()
     	    time.sleep(0.1)
 
     def set_automode_off(self):
