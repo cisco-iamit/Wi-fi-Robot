@@ -2,4 +2,6 @@ env/
 
 */*.pyc
 
-webserver/__pycache__
+*/__pycache__
+
+*/*/__pycache__
