@@ -49,6 +49,16 @@ def get_sensor_reading(position):
     return "failed"
 
 
+@app.route('/set_autopilot_on', methods=['GET'])
+def set_autopilot_mode_on():
+    controller().move_automatically()
+    return "set autopilot on"
+
+@app.route('/set_autopilot_off', methods=['GET'])
+def set_autopilot_mode_off():
+    controller().set_automode_off()
+    return "set autopilot off"
+
 if __name__ == "__main__":
     #app = Flask(__name__, template_folder='.')
     app.run(host='0.0.0.0', port=8000, debug=True)

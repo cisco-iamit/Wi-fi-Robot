@@ -1,4 +1,4 @@
-window.setInterval(query_sensors, 100);
+window.setInterval(query_sensors, 500);
 
 function query_sensors(){
     query_sensor("left")

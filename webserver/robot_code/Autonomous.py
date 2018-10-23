@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import .tank_GPIO
+from .tank_GPIO import RobotDriver, RobotSensors
 import time
 
 C = RobotDriver()
