@@ -1,0 +1,12 @@
+.root-container {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.fas {
+    font-size: 100px;
+    color: darkgray;
+    border-style: groove;
+    border-radius: 20px;
+    margin: 5px;
+}
