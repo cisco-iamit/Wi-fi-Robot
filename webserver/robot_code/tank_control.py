@@ -38,11 +38,11 @@ class RobotController:
                 self.right()
             elif self.sensors.read_right_sensor() == 1:
     	        self.left()
-    	    elif self.sensors.read_front_sensor() == 1:
+            elif self.sensors.read_front_sensor() == 1:
                 self.backward()
             else:
                 self.forward()
-    	    time.sleep(0.1)
+            time.sleep(0.1)
 
     def set_automode_off(self):
         self.autoMode = off
