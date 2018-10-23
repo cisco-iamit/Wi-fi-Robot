@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 app = Flask(__name__, template_folder='.')
+from robot_code import RobotController
 
 @app.route('/')
 def hello_world():
@@ -7,16 +8,20 @@ def hello_world():
 
 @app.route('/move_forward', methods=['GET'])
 def move_forward():
-    pass
+    RobotController().forward()
 
 @app.route('/turn_left', methods=['GET'])
 def turn_left():
-    pass
+    RobotController().left()
 
 @app.route('/turn_right', methods=['GET'])
 def turn_right():
-    pass
+    RobotController().right()
 
 @app.route('/move_back', methods=['GET'])
 def move_back():
-    pass
+    RobotController().back()
+
+@app.route('/stop', methods=['GET'])
+def move_back():
+    RobotController().stop()
