@@ -26,7 +26,7 @@ def turn_right():
 
 @app.route('/move_back', methods=['GET'])
 def move_back():
-    controller().back()
+    controller().backward()
     print("Back called")
     return "Back"
 
