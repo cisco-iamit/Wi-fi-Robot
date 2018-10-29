@@ -3,17 +3,32 @@
         <title>
             Robot Driver
         </title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/controls.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/proximitySensors.js') }}"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 
     </head>
     <body>
         <div class="root-container">
             <h1> Robot Driver </h1>
+            <div class="automode-container">
+                <h3>Auto Pilot Mode</h3>
+                <button class="auto-pilot-btn">OFF</button>
+            </div>
+            <div class="proximity-container">
+                <h3>Proximity Readings</h3>
+                <div class="top-row">
+                    <i class="fas proximity proximity-left fa-wifi"></i>
+                    <i class="fas proximity proximity-front fa-wifi"></i>
+                    <i class="fas proximity proximity-right fa-wifi"></i>
+                </div>
+            </div>
             <div class="widget-container">
+                <h3>Controls</h3>
                 <div class="top-row">
                     <i class="fas fa-arrow-up"></i>
                 </div>

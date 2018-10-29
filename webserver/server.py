@@ -1,6 +1,7 @@
 from flask import Flask, render_template
+import random
 app = Flask(__name__, template_folder='.')
-from  robot_code.tank_control import RobotController as controller
+#from  robot_code.tank_control import RobotController as controller
 
 @app.route('/')
 def hello_world():
@@ -36,6 +37,16 @@ def move_stop():
     print("Stop called")
     return "Stop"
 
+@app.route('/query_proximity_sensor/<position>', methods=['GET'])
+def get_sensor_reading(position):
+    ## Logic to query sensors!
+    if position == "left":
+        return str(random.randint(0,1))
+    elif position == "right":
+        return str(random.randint(0,1))
+    elif position == "front":
+        return str(random.randint(0,1))
+    return "failed"
 
 
 if __name__ == "__main__":
