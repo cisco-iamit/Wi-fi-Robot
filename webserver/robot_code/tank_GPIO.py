@@ -9,11 +9,11 @@ class RobotSensors():
         sensor_right_pin=7
     ):
 
-    self.sensor_left_pin = sensor_left_pin
-    self.sensor_front_pin = sensor_front_pin
-    self.sensor_right_pin = sensor_right_pin
+        self.sensor_left_pin = sensor_left_pin
+        self.sensor_front_pin = sensor_front_pin
+        self.sensor_right_pin = sensor_right_pin
 
-    self.init_pins()
+        self.init_pins()
 
     def init_pins(self):
         GPIO.setmode(GPIO.BCM)              #set pin mode
@@ -42,12 +42,12 @@ class RobotDriver():
     	right_motor_pin_1=26,
     	right_motor_pin_2=20):
 
-        self.left_motor_pin_1 = left_motor_pin_1
-        self.left_motor_pin_2 = left_motor_pin_2
-        self.right_motor_pin_1 = right_motor_pin_1
-        self.right_motor_pin_2 = right_motor_pin_2
+            self.left_motor_pin_1 = left_motor_pin_1
+            self.left_motor_pin_2 = left_motor_pin_2
+            self.right_motor_pin_1 = right_motor_pin_1
+            self.right_motor_pin_2 = right_motor_pin_2
 
-        self.init_pins()
+            self.init_pins()
 
     def init_pins(self):
         GPIO.setmode(GPIO.BCM)              #set pin mode
