@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import random
 app = Flask(__name__, template_folder='.')
 from  robot_code.tank_control import RobotController as controller
+controller = controller()
 
 @app.route('/')
 def hello_world():
@@ -9,31 +10,31 @@ def hello_world():
 
 @app.route('/move_forward', methods=['GET'])
 def move_forward():
-    controller().forward()
+    controller.forward()
     print("Forward called")
     return "Forward"
 
 @app.route('/turn_left', methods=['GET'])
 def turn_left():
-    controller().left()
+    controller.left()
     print("Left called")
     return "Left"
 
 @app.route('/turn_right', methods=['GET'])
 def turn_right():
-    controller().right()
+    controller.right()
     print("Right called")
     return "Right"
 
 @app.route('/move_back', methods=['GET'])
 def move_back():
-    controller().backward()
+    controller.backward()
     print("Back called")
     return "Back"
 
 @app.route('/stop', methods=['GET'])
 def move_stop():
-    controller().stop()
+    controller.stop()
     print("Stop called")
     return "Stop"
 
@@ -41,22 +42,22 @@ def move_stop():
 def get_sensor_reading(position):
     ## Logic to query sensors!
     if position == "left":
-        return str(controller().sensors.read_left_sensor())
+        return str(controller.sensors.read_left_sensor())
     elif position == "right":
-        return str(controller().sensors.read_right_sensor())
+        return str(controller.sensors.read_right_sensor())
     elif position == "front":
-        return str(controller().sensors.read_front_sensor())
+        return str(controller.sensors.read_front_sensor())
     return "failed"
 
 
 @app.route('/set_autopilot_on', methods=['GET'])
 def set_autopilot_mode_on():
-    controller().move_automatically()
+    controller.move_automatically()
     return "set autopilot on"
 
 @app.route('/set_autopilot_off', methods=['GET'])
 def set_autopilot_mode_off():
-    controller().set_automode_off()
+    controller.set_automode_off()
     return "set autopilot off"
 
 if __name__ == "__main__":
