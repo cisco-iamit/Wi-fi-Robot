@@ -5,7 +5,6 @@ class RobotController:
     def __init__(self):
         self.robot = RobotDriver()
         self.sensors = RobotSensors()
-        self.autoMode = False
 
     def forward(self):
         self.robot.left_motor_forward()
@@ -31,18 +30,3 @@ class RobotController:
         self.robot.left_motor_stop()
         self.robot.right_motor_stop()
         print("stop")
-
-    def move_automatically(self):
-        while self.autoMode:
-            if self.sensors.read_left_sensor() == 1:
-                self.right()
-            elif self.sensors.read_right_sensor() == 1:
-    	        self.left()
-    	    elif self.sensors.read_front_sensor() == 1:
-                self.backward()
-            else:
-                self.forward()
-    	    time.sleep(0.1)
-
-    def set_automode_off(self):
-        self.autoMode = off
