@@ -1,19 +1,79 @@
-# wi-fi-robot-
-raspberry pi based wi-fi robot using html rest calls and python
+# IamIT Wi-Fi Robot
 
-How to install this package? 
-First install raspbian from https://www.raspberrypi.org/downloads/
-Using rufus http://rufus.ie/ install the rasbian image on to the sd card.
-After starting the pi run a ```sudo apt-get update``` and ```sudo apt-get upgrade``` .
-Then install pip using ```sudo apt-get install python-pip```.
-Now download the package from git using git clone command e.g. ```git clone https://github.com/cisco-iamit/Wi-fi-Robot.git```.
-Now extract the package from a **tar.gz** to a directory in the pi.
-This can be done through the GUI or CLI, the GUI will allow you to use application such as achive extractor, thought the CLI you will need to use the command **unzip <filename>** e.g. ```unzip WebIOPi-0.7.1.zip``` to un pack the package.
-Now you will need to navigate into the package using **cd** command e.g. ```cd WebIOPi-0.7.1.zip```
-once in the package run ```sudo ./setup.sh``` this command will install and setup the package within raspbian
-to start up the package run
-```sudo /etc/init.d/webiopi start```
-to stop run
-```sudo /etc/init.d/webiopi stop```
-on the same network as the pi goto the ip address and port 8000 e.g. http://raspberrypi:8000/ 
-Default user is "webiopi" and password is "raspberry"
+## Installation
+
+Prerequisites:
+- Python 3 (check this using `python --version` or `python3 --version`)
+- Flask (`pip install flask`)
+- RPi module (this should be installed by default)
+
+Set up:
+1) SSH into the Pi or open a terminal on the Desktop GUI and use these commands:
+```shell
+# Download the repository
+git clone https://github.com/cisco-iamit/Wi-fi-Robot.git
+
+# Change directory into the webserver folder
+cd Wi-fi-Robot/webserver
+
+# Run the web client (assuming python3 is installed)
+python server.py
+```
+
+## The Web Client
+
+Once you have run `python server.py`, you should be able to view
+the webserver on the IP address of the Pi, `port 8000`.
+
+For example, if the IP address of your Pi is `192.168.43.211`, visit `192.168.43.211:8000` on your web browser (the laptop must be connected on the same network!)
+
+In the web client you can see the sensor readings from the robot and control the robot using the arrow keys! You can also click on the arrows to move them!
+
+## Robot API
+
+The robot can be controlled through the `RobotController` class.
+
+Importing the `RobotController` class can be done using:
+```python
+from robot_code.tank_control import RobotController as controller
+
+robot_control = RobotController()
+```
+
+### Moving the Robot
+
+You can call these methods on your initialised `RobotController` instance to move the robot.
+
+```python
+# Go forward
+robot_control.forward()
+
+# Go backward
+robot_control.backward()
+
+# Turn left
+robot_control.left()
+
+# Turn right
+robot_control.right()
+
+# To stop
+robot_control.stop()
+```
+
+### Reading the sensor input
+
+There are three IR sensors provided and the values can be read as so:
+
+Note that the function returns an Integer 0 or 1, where 0 is if there is an object infront of the sensor and 1 if there is not
+
+```python
+# Read left sensor
+robot_control.sensors.read_left_sensor()
+# Read right sensor
+robot_control.sensors.read_right_sensor()
+# Read front sensor
+robot_control.sensors.read_front_sensor()
+```
+
+It's best to use this in a while loop (with some timeout).

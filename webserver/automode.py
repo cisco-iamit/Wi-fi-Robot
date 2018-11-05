@@ -8,7 +8,6 @@ def run():
         sensor_left_val = robot.sensors.read_left_sensor()
         sensor_right_val = robot.sensors.read_right_sensor()
         sensor_front_val = robot.sensors.read_front_sensor()
-
         
         if sensor_left_val == 0:
             robot.right()
