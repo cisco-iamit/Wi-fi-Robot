@@ -1,0 +1,38 @@
+.root-container {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.fas {
+    font-size: 100px;
+    color: darkgray;
+    border-style: groove;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.proximity {
+    border-style: none;
+}
+
+.proximity-left {
+    transform: rotate(-45deg);
+}
+
+.proximity-right {
+    transform: rotate(45deg);
+}
+
+.proximity-front {
+    font-size: 150px;
+}
+
+.auto-pilot-btn {
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    background-color: darkgray;
+    font-size: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
