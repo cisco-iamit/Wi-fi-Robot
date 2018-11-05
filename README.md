@@ -1,6 +1,6 @@
 # IamIT Wi-Fi Robot
 
-## Installation
+## Installation
 
 Prerequisites:
 - Python 3 (check this using `python --version` or `python3 --version`)
