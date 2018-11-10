@@ -1,6 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import random
-
+import json
 
 app = Flask(__name__, template_folder='.')
 from  robot_code.tank_control import RobotController as controller
@@ -51,6 +51,18 @@ def get_sensor_reading(position):
     elif position == "front":
         return str(controller.sensors.read_front_sensor())
     return "failed"
+
+@app.route('/set_pins', methods=['POST'])
+def set_pins():
+    if request.method == 'POST':
+        controller.set_pins(request.form)
+        return "Pins Changed"
+    return "Set Pins failed"
+
+@app.route('/get_pins', methods=['GET'])
+def get_pins():
+    pin_config = controller.get_pins()
+    return json.dumps(pin_config)
 
 
 #@app.route('/set_autopilot_on', methods=['GET'])
