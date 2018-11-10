@@ -47,6 +47,7 @@ class RobotDriver():
             self.right_motor_pin_1 = right_motor_pin_1
             self.right_motor_pin_2 = right_motor_pin_2
 
+            self.valid_pins = [16,19,26,20]
             self.init_pins()
 
     def init_pins(self):
@@ -83,3 +84,19 @@ class RobotDriver():
     def right_motor_stop(self):
         GPIO.output(self.right_motor_pin_1,GPIO.LOW)
         GPIO.output(self.right_motor_pin_2,GPIO.LOW)
+
+    def set_left_motor_pin_1(self, pin):
+        if pin in self.valid_pins:
+            self.left_motor_pin_1 = pin
+
+    def set_left_motor_pin_2(self, pin):
+        if pin in self.valid_pins:
+            self.left_motor_pin_2 = pin
+
+    def set_right_motor_pin_1(self, pin):
+        if pin in self.valid_pins:
+            self.right_motor_pin_1 = pin
+
+    def set_right_motor_pin_2(self, pin):
+        if pin in self.valid_pins:
+            self.right_motor_pin_2 = pin
