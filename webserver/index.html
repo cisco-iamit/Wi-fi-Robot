@@ -8,6 +8,7 @@
         <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/controls.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/proximitySensors.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/pinConfig.js') }}"></script>
         <link href="{{ url_for('static', filename='css/font.css') }}" rel="stylesheet">
     </head>
     <body>
@@ -17,6 +18,30 @@
                 <h3>Auto Pilot Mode</h3>
                 <button class="auto-pilot-btn">OFF</button>
             </div> -->
+            <div class="pin-settings-container">
+              <h3> Pin Configuration </h3>
+              <div class="top-row">
+                <div>
+                  <label>LM1:</label>
+                  <input class="pin-text" type="text" id="left_motor_1">
+                <div>
+                <div>
+                  <label>LM2:</label>
+                  <input class="pin-text" type="text" id="left_motor_2">
+                </div>
+                <div>
+                  <label>RM1:</label>
+                  <input class="pin-text" type="text" id="right_motor_1">
+                </div>
+                <div>
+                  <label>RM2:</label>
+                  <input class="pin-text" type="text" id="right_motor_2">
+                </div>
+              </div>
+              <div class="bottom-row">
+                <button id="pin-submit" class="pin-text" type="submit">Set</button>
+              </div>
+            </div>
             <div class="proximity-container">
                 <h3>Proximity Readings</h3>
                 <div class="top-row">
