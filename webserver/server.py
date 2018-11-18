@@ -3,9 +3,9 @@ import random
 import json
 
 app = Flask(__name__, template_folder='.')
-from  robot_code.tank_control import RobotController as controller
+# from  robot_code.tank_control import RobotController as controller
 
-controller = controller()
+#controller = controller()
 
 @app.route('/')
 def hello_world():
