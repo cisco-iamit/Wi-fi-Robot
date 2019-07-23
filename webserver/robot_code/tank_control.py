@@ -1,5 +1,6 @@
-from .tank_GPIO import RobotDriver, RobotSensors
+from .tank_GPIO import RobotDriver, RobotSensors, RobotArm
 import time
+
 class RobotController:
 
     def __init__(self):
@@ -50,3 +51,28 @@ class RobotController:
             'right_motor_pin_2' : self.robot.right_motor_pin_2
         }
         return pins
+
+
+
+class ArmControls:
+    def __init__(self):
+        self.arm = RobotArm()
+        self.active_arm = self.arm.init_pins()
+
+    def move_servo_1(angle):
+        self.arm.servo_1_move(angle)
+
+    def move_servo_2(angle):
+        self.arm.servo_2_move(angle)
+
+    def move_servo_3(angle):
+        self.arm.servo_3_move(angle)
+
+    def move_servo_4(angle):
+        self.arm.servo_4_move(angle)
+
+    def move_servo_5(angle):
+        self.arm.servo_5_move(angle)
+
+    def move_servo_6(angle):
+        self.arm.servo_6_move(angle)
