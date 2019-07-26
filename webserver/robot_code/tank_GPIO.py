@@ -5,7 +5,7 @@ class RobotArm():
 
     def __init__(self,
     	servo_1=11,
-    	servo_2=09,
+    	servo_2=9,
     	servo_3=10,
     	servo_4=22,
     	servo_5=27,
