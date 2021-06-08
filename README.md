@@ -1,4 +1,6 @@
-# IamIT Wi-Fi Robot
+# IamIT Wi-Fi Robot (no longer maintained)
+
+**Please note:** this code was created for a programming class in 2017-2018 and is no longer maintained.
 
 ## Installation
 
